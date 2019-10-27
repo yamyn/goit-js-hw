@@ -13,28 +13,36 @@ let message;
 const country = prompt("Из какой вы страны?");
 
 if (country === null || country === "") {
-  message = "Ошибка ввода!";
+  alert("Ошибка ввода!");
 } else {
   countryLc = country.toLowerCase();
-  switch (country) {
+  switch (countryLc) {
     case "китай":
       price = chinaPrice;
       break;
 
     case "чили":
-      price = chinaPrice;
+      price = сhilePrice;
       break;
 
     case "австралия":
-      price = chinaPrice;
+      price = australiaPrice;
       break;
 
     case "индия":
-      price = chinaPrice;
+      price = indiaPrice;
       break;
 
     case "ямайка":
-      price = chinaPrice;
+      price = jamaicaPrice;
       break;
+
+    default:
+      alert("В вашей стране доставка не доступна");
   }
+}
+
+if (price !== undefined) {
+  message = `Доставка в ${country} будет стоить ${price} кредитов`;
+  alert(message);
 }
