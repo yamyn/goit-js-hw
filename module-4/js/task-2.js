@@ -19,13 +19,13 @@ const invokeInventoryAction = function(itemName, action) {
   action(itemName);
 };
 
-invokeInventoryAction('Аптечка', inventory.add);
+invokeInventoryAction('Аптечка', inventory.add.bind(inventory));
 // Invoking action on Аптечка
 // Adding Аптечка to inventory
 
 console.log(inventory.items); // ['Монорельса', 'Фильтр', 'Аптечка']
 
-invokeInventoryAction('Фильтр', inventory.remove);
+invokeInventoryAction('Фильтр', inventory.remove.bind(inventory));
 // Invoking action on Фильтр
 // Removing Фильтр from inventory
 
