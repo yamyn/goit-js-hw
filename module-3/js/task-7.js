@@ -1,4 +1,6 @@
 'use strict';
+//GLOBAL;
+//Parent: null;
 
 /*
  * Типов транзацкий всего два.
