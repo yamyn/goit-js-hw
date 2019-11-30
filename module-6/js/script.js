@@ -136,22 +136,35 @@ const users = [
 // }
 
 //==================TASK 6
+// {
+//   const getUsersWithAge = (users, min, max) => {
+//     return users.filter(user => user.age >= min && user.age <= max);
+//   };
+
+//   console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
+
+//   console.log(getUsersWithAge(users, 30, 40));
+//   // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
+// }
+
+// //==================TASK 7
+// {
+//   const calculateTotalBalance = users => {
+//     return users.reduce((totalBalance, user) => totalBalance + user.balance, 0);
+//   };
+
+//   console.log(calculateTotalBalance(users)); // 20916
+// }
+
+//==================TASK 8
+// {
+//   const getUsersWithFriend = (users, friendName) =>
+//     users.filter(user => user.friends.find(friend => friend === friendName));
+
+//   console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
+//   console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
+// }
+
+//==================TASK 9
 {
-  const getUsersWithAge = (users, min, max) => {
-    return users.filter(user => user.age >= min && user.age <= max);
-  };
-
-  console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
-
-  console.log(getUsersWithAge(users, 30, 40));
-  // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
-}
-
-//==================TASK 7
-{
-  const calculateTotalBalance = users => {
-    // твой код
-  };
-
-  console.log(calculateTotalBalance(users)); // 20916
 }
