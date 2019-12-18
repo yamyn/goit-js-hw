@@ -1,0 +1,21 @@
+#gallery {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+/* 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+} */
+
+.galery__item {
+  list-style: none;
+  border: palevioletred 5px solid;
+}
+
+.galery__item img {
+  width: 400px;
+  height: 300px;
+}
