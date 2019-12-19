@@ -10,7 +10,7 @@ function validationText() {
   const lengthValue = this.value.split('').length;
   const validation = this.dataset.length;
   this.classList.toggle('valid');
-  if (lengthValue < validation) {
+  if (lengthValue <= validation) {
     this.classList.replace('valid', 'invalid');
   }
 }
