@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  background-color: #fff;
+  background-color: rgba(53, 51, 51, 0.199);
   color: #212121;
 }
 
