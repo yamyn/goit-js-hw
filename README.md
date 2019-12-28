@@ -7,3 +7,4 @@
 <a href="./module-5/index.html">Module-5</a>
 <a href="./module-6/index.html">Module-6</a>
 <a href="./module-7/index.html">Module-7</a>
+<a href="./module-8/index.html">Module-8</a>
