@@ -6,44 +6,66 @@ const refs = {
   bigImage: document.querySelector('img.lightbox__image'),
 };
 
+let focusedLi;
+
 refs.galleryList.addEventListener('click', handleClickOnGallery);
 
 function handleClickOnGallery(event) {
   event.preventDefault();
-  const changedImg = event.target;
+  focusedLi = event.target.closest('li.galery__item');
 
-  if (event.currentTarget === changedImg) {
+  if (event.currentTarget === event.target) {
     return;
   }
-
-  const bigImageUrl = changedImg.dataset.source;
-  const bigImageAlt = changedImg.getAttribute('alt');
-
-  openModalWin(bigImageUrl, bigImageAlt);
+  openModalWin();
+  const bigImageUrl = event.target.dataset.source;
+  const bigImageAlt = event.target.getAttribute('alt');
+  generateOrigImg(bigImageUrl, bigImageAlt);
 }
 
-function openModalWin(url, alt) {
-  const modal = refs.modalWin;
-  modal.classList.add('is-open');
+function openModalWin() {
+  refs.modalWin.classList.add('is-open');
+  refs.modalWin.addEventListener('click', event => closeModal());
+  window.addEventListener('keydown', handleKeyPressClose);
+  window.addEventListener('keydown', handleKeyPressLeaf);
+}
+
+function generateOrigImg(url, alt) {
   const image = refs.bigImage;
   image.setAttribute('src', url);
   image.setAttribute('alt', alt);
-
-  //   const closeButton = window.querySelector(
-  //     'button[data-action="close-lightbox"]',
-  //   );
-  //   const backArea = window.querySelector('.lightbox__overlay');
-  // Если делать дополнительное задание получаеться кнопку не обязательно искать, так как событие всеравно сплывет на верхний див
-
-  modal.addEventListener('click', event => closeModal());
-  window.addEventListener('keydown', handleClickOnEsc);
 }
 
-function handleClickOnEsc(event) {
+function handleKeyPressClose(event) {
   if (event.code !== 'Escape') {
     return;
   }
   closeModal();
+}
+
+function handleKeyPressLeaf(event) {
+  let nextLi;
+  if (event.code === 'ArrowRight') {
+    nextLi = focusedLi.nextElementSibling;
+  } else if (event.code === 'ArrowLeft') {
+    nextLi = focusedLi.previousElementSibling;
+  } else {
+    return;
+  }
+
+  if (!nextLi) {
+    return;
+  }
+  focusedLi = nextLi;
+
+  const newImg = nextLi.querySelector('img.gallery__image');
+  console.log(newImg);
+  const newImgUrl = newImg.dataset.source;
+  const newImgAlt = newImg.getAttribute('alt');
+
+  closeModal();
+  openModalWin();
+  generateOrigImg(newImgUrl, newImgAlt);
 }
 
 function closeModal() {
@@ -53,5 +75,6 @@ function closeModal() {
   }
   refs.modalWin.classList.remove('is-open');
   image.removeAttribute('src');
-  window.removeEventListener('keydown', handleClickOnEsc);
+  window.removeEventListener('keydown', handleKeyPressClose);
+  window.removeEventListener('keydown', handleKeyPressLeaf);
 }
