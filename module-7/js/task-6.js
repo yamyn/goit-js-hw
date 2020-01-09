@@ -10,6 +10,7 @@ function validationText() {
   const validation = Number(this.dataset.length);
   if (lengthValue !== validation) {
     this.classList.remove('valid');
+
     this.classList.add('invalid');
     return;
   }
