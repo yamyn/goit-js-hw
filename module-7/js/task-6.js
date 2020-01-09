@@ -6,12 +6,13 @@ const validInput = document.querySelector('#validation-input');
 validInput.addEventListener('change', validationText.bind(validInput));
 
 function validationText() {
-  this.classList.remove('invalid', 'valid');
   const lengthValue = this.value.length;
-  const validation = this.dataset.length;
-  if (lengthValue < validation) {
+  const validation = Number(this.dataset.length);
+  if (lengthValue !== validation) {
+    this.classList.remove('valid');
     this.classList.add('invalid');
     return;
   }
+  this.classList.remove('invalid');
   this.classList.add('valid');
 }
